@@ -13,6 +13,11 @@ namespace ThemeManagerRt
             _themeManager = this;
         }
 
+        static ThemeManager()
+        {
+            _themeManager = new ThemeManager();
+        }
+
         public ElementTheme Theme { get; set; }
 
         public static void ChangeTheme(Uri resourceUri)
