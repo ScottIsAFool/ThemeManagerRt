@@ -12,6 +12,7 @@
         <Button Background="{ThemeResource ButtonBackgroundThemeBrush}"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-                Content="LOOK AT ME!" />
+                Content="LOOK AT ME!"
+                Click="Button_Click" />
     </Grid>
 </themeManagerRt:ThemeEnabledPage>

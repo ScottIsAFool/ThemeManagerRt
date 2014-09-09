@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml.Navigation;
+﻿using System;
+using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -9,11 +10,16 @@ namespace ThemeManagerRt.Playground
     /// </summary>
     public sealed partial class MainPage
     {
+        private bool isGreen = false;
         public MainPage()
         {
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
+
+#if WINDOWS_APP
+            isGreen = true;
+#endif
         }
 
         /// <summary>
@@ -30,6 +36,13 @@ namespace ThemeManagerRt.Playground
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
+        }
+
+        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            var url = new Uri(string.Format("ms-appx:///Themes/{0}.xaml", isGreen ? "Dark" : "Green"));
+            ThemeManager.ChangeTheme(url);
+            isGreen = !isGreen;
         }
     }
 }
