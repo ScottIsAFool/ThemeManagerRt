@@ -11,19 +11,31 @@ namespace ThemeManagerRt
         public ThemeManager()
         {
             _themeManager = this;
+            DefaultTheme = ElementTheme.Dark;
         }
 
         public ElementTheme Theme { get; set; }
 
+        public static ElementTheme DefaultTheme { get; set; }
+
         public static void ChangeTheme(Uri resourceUri)
         {
-            var dicts = ((ResourceDictionary)Application.Current.Resources.ThemeDictionaries["Dark"]).MergedDictionaries;
+            var themeDict = DefaultTheme == ElementTheme.Dark ? "Dark" : "Light";
+            var dicts = ((ResourceDictionary)Application.Current.Resources.ThemeDictionaries[themeDict]).MergedDictionaries;
             dicts.Clear();
             var x = new ResourceDictionary { Source = resourceUri };
             dicts.Add(x);
 
-            _themeManager.Theme = ElementTheme.Light;
-            _themeManager.Theme = ElementTheme.Dark;
+            if (DefaultTheme == ElementTheme.Dark)
+            {
+                _themeManager.Theme = ElementTheme.Light;
+                _themeManager.Theme = ElementTheme.Dark;
+            }
+            else
+            {
+                _themeManager.Theme = ElementTheme.Dark;
+                _themeManager.Theme = ElementTheme.Light;
+            }
         }
     }
 }
