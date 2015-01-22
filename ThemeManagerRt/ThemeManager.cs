@@ -14,6 +14,11 @@ namespace ThemeManagerRt
             DefaultTheme = ElementTheme.Dark;
         }
 
+        static ThemeManager()
+        {
+            _themeManager = new ThemeManager();
+        }
+
         public ElementTheme Theme { get; set; }
 
         public static ElementTheme DefaultTheme { get; set; }
