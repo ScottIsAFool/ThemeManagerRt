@@ -10,13 +10,20 @@ namespace ThemeManagerRt
         private static ThemeManager _themeManager;
         public ThemeManager()
         {
-            _themeManager = this;
-            DefaultTheme = ElementTheme.Dark;
+            if (_themeManager == null)
+            {
+                _themeManager = this;
+                DefaultTheme = ElementTheme.Dark;
+            }
         }
 
         static ThemeManager()
         {
-            _themeManager = new ThemeManager();
+            if (_themeManager == null)
+            {
+                _themeManager = new ThemeManager();
+                DefaultTheme = ElementTheme.Dark;
+            }
         }
 
         public ElementTheme Theme { get; set; }
