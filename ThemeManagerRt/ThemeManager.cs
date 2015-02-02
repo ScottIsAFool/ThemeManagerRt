@@ -17,15 +17,6 @@ namespace ThemeManagerRt
             }
         }
 
-        static ThemeManager()
-        {
-            if (_themeManager == null)
-            {
-                _themeManager = new ThemeManager();
-                DefaultTheme = ElementTheme.Dark;
-            }
-        }
-
         public ElementTheme Theme { get; set; }
 
         public static ElementTheme DefaultTheme { get; set; }
