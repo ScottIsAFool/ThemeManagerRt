@@ -40,5 +40,17 @@ namespace ThemeManagerRt
                 _themeManager.Theme = ElementTheme.Light;
             }
         }
+
+        public static void ToDarkTheme()
+        {
+            _themeManager.Theme = ElementTheme.Default;
+            _themeManager.Theme = ElementTheme.Dark;
+        }
+
+        public static void ToLightTheme()
+        {
+            _themeManager.Theme = ElementTheme.Default;
+            _themeManager.Theme = ElementTheme.Light;
+        }
     }
 }
