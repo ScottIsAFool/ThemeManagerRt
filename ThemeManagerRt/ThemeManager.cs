@@ -43,12 +43,21 @@ namespace ThemeManagerRt
 
         public static void ToDarkTheme()
         {
+            CheckManagerInitiated();
+
             _themeManager.Theme = ElementTheme.Default;
             _themeManager.Theme = ElementTheme.Dark;
         }
 
+        private static void CheckManagerInitiated()
+        {
+            if (_themeManager == null) _themeManager = new ThemeManager();
+        }
+
         public static void ToLightTheme()
         {
+            CheckManagerInitiated();
+
             _themeManager.Theme = ElementTheme.Default;
             _themeManager.Theme = ElementTheme.Light;
         }
