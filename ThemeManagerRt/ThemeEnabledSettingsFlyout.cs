@@ -2,9 +2,9 @@
 
 namespace ThemeManagerRt
 {
-    public class ThemeEnabledPage : Page
+    public class ThemeEnabledSettingsFlyout : SettingsFlyout
     {
-        public ThemeEnabledPage()
+        public ThemeEnabledSettingsFlyout()
         {
             this.ThemeEnableThisElement();
         }
