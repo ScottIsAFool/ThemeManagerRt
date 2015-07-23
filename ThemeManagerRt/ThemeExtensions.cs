@@ -7,7 +7,7 @@ namespace ThemeManagerRt
 {
     public static class ThemeExtensions
     {
-        public static void ThemeEnableThisPage(this Page page)
+        public static void ThemeEnableThisElement(this FrameworkElement element)
         {
             var tm = Application.Current.Resources["ThemeManager"];
             if (tm == null)
@@ -21,7 +21,8 @@ namespace ThemeManagerRt
                 Path = new PropertyPath("Theme"),
                 Mode = BindingMode.OneWay
             };
-            page.SetBinding(Page.RequestedThemeProperty, binding);
+
+            element.SetBinding(FrameworkElement.RequestedThemeProperty, binding);
         }
     }
 }
